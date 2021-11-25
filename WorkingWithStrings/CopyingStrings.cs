@@ -25,9 +25,11 @@ namespace WorkingWithStrings
         /// </summary>
         public static string CopyThreeChars(string source, string destination)
         {
-            // TODO #8-1. Analyze unit tests for the method, and add the method implementation.
-            // Use String.CopyTo method to copy characters: https://docs.microsoft.com/en-us/dotnet/api/system.string.copyto
-            throw new NotImplementedException();
+            char[] destinationArray = destination.ToCharArray();
+
+            source.CopyTo(0, destinationArray, 0, source.Length);
+
+            return new string(destinationArray);
         }
 
         /// <summary>
@@ -35,8 +37,11 @@ namespace WorkingWithStrings
         /// </summary>
         public static string CopyFiveChars(string source, string destination)
         {
-            // TODO #8-2. Analyze unit tests for the method, and add the method implementation.
-            throw new NotImplementedException();
+            char[] destinationArray = destination.ToCharArray();
+
+            source.CopyTo(0, destinationArray, destination.IndexOf('*', StringComparison.CurrentCultureIgnoreCase), source.Length);
+
+            return new string(destinationArray);
         }
 
         /// <summary>
@@ -44,8 +49,11 @@ namespace WorkingWithStrings
         /// </summary>
         public static string CopySixChars(string source, string destination)
         {
-            // TODO #8-3. Analyze unit tests for the method, and add the method implementation.
-            throw new NotImplementedException();
+            char[] destinationArray = destination.ToCharArray();
+
+            source.CopyTo(2, destinationArray, Array.IndexOf(destinationArray, '*'), 6);
+
+            return new string(destinationArray);
         }
 
         /// <summary>
@@ -53,8 +61,17 @@ namespace WorkingWithStrings
         /// </summary>
         public static string GetProductionCode(string template, string regionCode, string locationCode, string dateCode, string factoryCode)
         {
-            // TODO #8-4. Analyze unit tests for the method, and add the method implementation.
-            throw new NotImplementedException();
+            char[] templateArray = template.ToCharArray();
+
+            regionCode.CopyTo(1, templateArray, Array.IndexOf(templateArray, '*'), 1);
+
+            locationCode.CopyTo(4, templateArray, Array.IndexOf(templateArray, '*'), 2);
+
+            dateCode.CopyTo(3, templateArray, Array.IndexOf(templateArray, '*'), 3);
+
+            factoryCode.CopyTo(2, templateArray, Array.IndexOf(templateArray, '*'), 4);
+
+            return new string(templateArray);
         }
     }
 }
