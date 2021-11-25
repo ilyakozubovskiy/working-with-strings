@@ -53,8 +53,6 @@ namespace WorkingWithStrings
         /// </summary>
         public static string GetStringWithoutTwoLastChars(string str)
         {
-            // TODO #4-5. Analyze unit tests for the method, and add the method implementation.
-            // Use range to get a substring: https://docs.microsoft.com/en-us/dotnet/csharp/tutorials/ranges-indexes
             return str[..^2];
         }
 
